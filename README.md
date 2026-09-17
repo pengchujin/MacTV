@@ -17,8 +17,6 @@
   <p><sub>MacTV 实机界面 · MiTV-MFFU1</sub></p>
 </div>
 
-> **v0.1.2** 已使用 Developer ID 签名并通过 Apple 公证。仅提供 Apple Silicon 版本。
-
 ## 熟悉的音量键，现在控制电视
 
 - **键盘音量键** — HDMI 音频输出时，使用 Mac 的音量加减和静音键。

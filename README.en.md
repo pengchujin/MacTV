@@ -17,8 +17,6 @@
   <p><sub>MacTV running with a MiTV-MFFU1 display. Screenshots show the Chinese interface; English is also supported.</sub></p>
 </div>
 
-> **v0.1.2** is Developer ID signed and notarized by Apple. Available for Apple Silicon only.
-
 ## Your familiar volume keys, now for your TV
 
 - **Keyboard volume keys** — Use your Mac’s volume and mute keys when audio is routed through HDMI.
