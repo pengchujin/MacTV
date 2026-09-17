@@ -12,7 +12,7 @@
 
 ## 实机验证（2026-09-17）
 
-M4 Mac mini、macOS 27、REDMI MiTV-MFFU1。使用 ADB `input keyevent` 在电视端模拟按键，实际传输仍经过 HDMI-CEC。尚未验证用户手持遥控器，以及其他品牌电视/播放器。
+M4 Mac mini、macOS 27、REDMI MiTV-MFFU1。使用 ADB `input keyevent` 在电视端模拟按键，实际传输仍经过 HDMI-CEC。用户手持遥控器的确认键已在电视发送日志与 Mac 接收状态中观察到；其他品牌电视尚未验证。
 
 | 验证 | 结果 |
 | --- | --- |
@@ -34,3 +34,12 @@ M4 Mac mini、macOS 27、REDMI MiTV-MFFU1。使用 ADB `input keyevent` 在电�
 - 播放控制使用非公开 `MRMediaRemoteSendCommand`，兼容性随 macOS 和播放器变化。返回成功仅代表请求被接受，不代表播放器实际执行。
 
 参考：[Linux DP CEC 接收实现](https://github.com/torvalds/linux/blob/master/drivers/gpu/drm/display/drm_dp_cec.c)、[AOSP HDMI-CEC 按键定义](https://android.googlesource.com/platform/frameworks/base/+/master/services/core/java/com/android/server/hdmi/HdmiCecKeycode.java)、[MediaRemote 接口声明](https://github.com/theos/headers/blob/master/MediaRemote/MediaRemote.h)。
+
+## 确认键映射与播放器复测
+
+用户反馈 Apple Music 与网页播放无效时，电视确实发出了 `04:44:00`，Mac 设置显示「收到电视按键：确认」，但「确认键切换播放/暂停」关闭。开启该选项后，通过电视端 `input keyevent 23` 复测：
+
+- Apple Music：当前曲目从播放切换为暂停，播放控件状态已核实。
+- Safari 的 B 站播放器：视频暂停在 00:23，再次确认后恢复至 00:27。此结果仅覆盖该浏览器和测试页面，不代表所有网页播放器。
+
+试验版恢复原有遥控器图标，移除临时 `TV → Mac` 菜单栏标题。

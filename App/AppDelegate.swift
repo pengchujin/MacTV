@@ -28,11 +28,6 @@ import SwiftUI
         item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         item.button?.image = NSImage(systemSymbolName: "appletvremote.gen4", accessibilityDescription: L("MacTV"))
         item.button?.image?.isTemplate = true
-        if CommandLine.arguments.contains("--reverse-preview") {
-            item.length = 78
-            item.button?.image = nil
-            item.button?.title = "TV → Mac"
-        }
         item.button?.toolTip = L("MacTV · 点击打开，右键查看命令")
         item.button?.target = self; item.button?.action = #selector(toggle)
         item.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
