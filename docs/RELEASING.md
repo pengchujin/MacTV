@@ -21,3 +21,17 @@ shasum -a 256 MacTV-macOS-arm64.zip
 ```
 
 公证表示 Apple 完成安全检查，不是 Mac App Store 审核或电视兼容性认证。签名证书、私钥、账号凭据和本机导出配置不得提交到仓库。
+
+## 同步下载入口与 Homebrew
+
+发布新版本后，更新 README 下载按钮中的版本和 ZIP 文件名，使按钮始终直达安装包。
+
+在 [pengchujin/homebrew-tap](https://github.com/pengchujin/homebrew-tap) 更新 `Casks/mactv.rb` 的 `version` 和 `sha256`。使用公开 Release 下载文件计算校验值，然后验证：
+
+```sh
+brew audit --cask pengchujin/tap/mactv
+brew fetch --cask pengchujin/tap/mactv
+brew install --cask pengchujin/tap/mactv
+```
+
+若本机已手动安装完全相同的 App，可加 `--adopt` 交由 Homebrew 管理；不要用 `--force` 覆盖未知版本。

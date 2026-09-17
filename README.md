@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="App/Resources/AppIcon.png" width="108" alt="MacTV图标">
+  <img src="docs/images/app-icon.svg" width="108" alt="MacTV图标">
   <h1>MacTV · 电视遥控</h1>
   <p>让电视更好用作 Mac 显示器。</p>
   <p>通过 HDMI-CEC，在 Mac 上调节电视音量、切换输入源、操作菜单。</p>
@@ -8,7 +8,8 @@
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/MacTV/releases">下载版本</a> · <a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.1/MacTV-v0.1.1-macOS-arm64.zip"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
+  <p><a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
   <br>
   <img src="docs/images/mactv-live.png" width="640" alt="MacTV 连接 REDMI 显示器，展开输入源菜单">
   <p><sub>MacTV 实机界面 · MiTV-MFFU1</sub></p>
@@ -22,6 +23,19 @@
 - **菜单栏遥控器** — 方向、确认、返回，以及电视支持的唤醒、待机和菜单操作。
 - **输入源** — 请求切回这台 Mac，或切换 HDMI 输入；实际效果取决于电视。
 - **原生体验** — 浅色与深色外观、大字号、VoiceOver，支持简体中文、繁体中文和英文。
+
+## Homebrew 安装
+
+```sh
+brew install --cask pengchujin/tap/mactv
+```
+
+安装后打开「应用程序」中的 MacTV。更新时运行：
+
+```sh
+brew update
+brew upgrade --cask pengchujin/tap/mactv
+```
 
 ## 三步开始
 
