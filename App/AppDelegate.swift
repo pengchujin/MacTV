@@ -8,6 +8,8 @@ import SwiftUI
     private var settingsWindow: NSWindow?
     private var keyboardMonitor: Any?
     private var refreshTimer: Timer?
+    private var tvRemoteTimer: Timer?
+    private let tvRemote = TVRemoteBridge()
     private var workspaceObserver: NSObjectProtocol?
     private lazy var volumeKeys = SystemVolumeBridge(ready: { [weak self] in
         guard let self else { return false }
@@ -26,6 +28,11 @@ import SwiftUI
         item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         item.button?.image = NSImage(systemSymbolName: "appletvremote.gen4", accessibilityDescription: L("MacTV"))
         item.button?.image?.isTemplate = true
+        if CommandLine.arguments.contains("--reverse-preview") {
+            item.length = 78
+            item.button?.image = nil
+            item.button?.title = "TV → Mac"
+        }
         item.button?.toolTip = L("MacTV · 点击打开，右键查看命令")
         item.button?.target = self; item.button?.action = #selector(toggle)
         item.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
@@ -56,6 +63,12 @@ import SwiftUI
             return
         }
         #endif
+        tvRemoteTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                guard let self else { return }
+                self.tvRemote.configure(connection: self.model.connection, paused: self.model.busy)
+            }
+        }
         model.refresh()
         if CommandLine.arguments.contains("--show") { DispatchQueue.main.async { self.show() } }
     }
@@ -89,7 +102,7 @@ import SwiftUI
     @objc func showSettings() {
         popover.performClose(nil)
         if settingsWindow == nil {
-            let controller = NSHostingController(rootView: SettingsView(model: model, volumeKeys: volumeKeys))
+            let controller = NSHostingController(rootView: SettingsView(model: model, volumeKeys: volumeKeys, tvRemote: tvRemote))
             let window = NSWindow(contentViewController: controller)
             window.title = L("MacTV 设置")
             window.styleMask = [.titled, .closable, .miniaturizable, .resizable]

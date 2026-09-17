@@ -229,3 +229,37 @@
 "已发送音量 %@%；需要 CEC 2.0 支持" = "Sent volume %@%; requires CEC 2.0 support";
 "已发送“%@”" = "Sent “%@”";
 "未知操作" = "Unknown action";
+
+"电视遥控器控制已关闭" = "TV remote control is off";
+
+"等待 HDMI 连接空闲" = "Waiting for the HDMI connection to be ready";
+
+"等待电视遥控器按键…" = "Waiting for a TV remote button…";
+
+"收到电视按键：%@" = "TV remote button received: %@";
+
+"已调整 Mac 输出音量" = "Mac output volume adjusted";
+
+"当前输出不支持 Mac 软件音量，请用电视自身音量控制" = "This output does not support Mac software volume. Use the TV’s own volume control.";
+
+"当前 macOS 不支持播放控制接口" = "Playback control is unavailable on this version of macOS";
+
+"已请求控制 Mac 播放；实际响应取决于播放器" = "Playback command requested; response depends on the player";
+
+"播放器未接受控制请求" = "The player did not accept the control request";
+
+"电视遥控器（试验功能）" = "TV remote (experimental)";
+
+"用电视遥控器控制 Mac" = "Control Mac with the TV remote";
+
+"支持播放、暂停、上一首和下一首；确认键切换播放。电视必须转发 CEC 按键。音量键通常由电视自身处理，HDMI 输出可能不支持 Mac 软件音量。" = "Supports play, pause, previous and next; OK toggles playback. The TV must forward CEC buttons. Volume keys usually control the TV directly; HDMI output may not support Mac software volume.";
+
+"下一首" = "Next track";
+
+"上一首" = "Previous track";
+
+"确认键保留原有操作" = "OK keeps its original behavior";
+
+"确认键切换播放/暂停" = "Use OK to toggle play/pause";
+
+"电视必须转发 CEC 按键。确认键映射默认关闭，因为部分 Mac 还会将它作为 Return 发送给当前 App。音量键通常由电视自身处理，HDMI 输出可能不支持 Mac 软件音量。" = "The TV must forward CEC buttons. OK mapping is off by default: some Macs also forward it as Return to the focused app. Volume keys usually control the TV directly; HDMI output may not support Mac software volume.";

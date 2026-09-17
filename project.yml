@@ -39,7 +39,6 @@ targets:
       - path: App
         excludes: [MakeIcon.swift, Resources]
       - path: Sources/CECCore
-        excludes: [NativeCEC.swift]
       - path: App/Resources/AppIcon.icns
         buildPhase: resources
     settings:

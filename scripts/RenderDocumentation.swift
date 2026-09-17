@@ -14,7 +14,7 @@ import SwiftUI
         let keys = SystemVolumeBridge(ready: { false }, action: { _ in }, monitoring: false)
         keys.status = L("已接管 HDMI 输出的音量键和静音键")
         capture(RemoteView(model: model, volumeKeys: keys, openSettings: {}), name: "remote", size: NSSize(width: 320, height: 550))
-        capture(SettingsView(model: model, volumeKeys: keys), name: "settings", size: NSSize(width: 540, height: 740))
+        capture(SettingsView(model: model, volumeKeys: keys, tvRemote: TVRemoteBridge()), name: "settings", size: NSSize(width: 540, height: 740))
     }
     static func capture<V: View>(_ view: V, name: String, size: NSSize) {
         let host = NSHostingView(rootView: view.environment(\.colorScheme, .light).frame(width: size.width, height: size.height, alignment: .top).background(Color(nsColor: .windowBackgroundColor)))

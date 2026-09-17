@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		22E74C6CCCC0208ADFA78F2A /* RemoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6079B74CA16AB79FF0B6B81 /* RemoteController.swift */; };
+		4049E17A8E196160A969FA3B /* TVRemoteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A15CFA23CE8EAC97E550C /* TVRemoteEvent.swift */; };
 		436852908978F7FBC4593446 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BF8571AA4A8C2BF7D0FB257 /* Localizable.strings */; };
 		4F9AFA4CDF6774112A0C2ED9 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DEB1A6939F2BB349DA7500 /* CommandRunner.swift */; };
 		522291DD7FBCA009566BAE2D /* RemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3313645D43B74E627A081C /* RemoteCommand.swift */; };
 		5587415736468202FD4F4D37 /* VolumeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB31AFD1633A37A23B42FC /* VolumeKey.swift */; };
 		5CEFE54B5E03348A0C6837CF /* MacTVCEC in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 8C0DCFAEB49C986610272399 /* MacTVCEC */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		66B88E61916F4F3063BE3D26 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE66CDAC29C2F25CA13491 /* Localization.swift */; };
+		682BBE29073686E68BA2BD22 /* NativeCEC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC6D1BF2E5E2A4D23886D8 /* NativeCEC.swift */; };
 		7B1FF5E480DDA83E8043ABAE /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A1070718B286CD6A3E6EE0 /* RemoteView.swift */; };
 		7E86CCE11703E3E2E59E0818 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE66CDAC29C2F25CA13491 /* Localization.swift */; };
 		8C71F7880367F740F7450B39 /* CECProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B354393CC12A8C041F8D30B1 /* CECProtocol.swift */; };
 		9B326C3D68B7994A0EA3233C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755DD8ED54C6FDD793EEC9F4 /* AppDelegate.swift */; };
 		A1143DCE435499C025509DB0 /* NativeCEC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC6D1BF2E5E2A4D23886D8 /* NativeCEC.swift */; };
 		A16020655443E1CDE07D5B7C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62A64A1C102CBD5456FE63 /* main.swift */; };
+		AAA5BFC47760BC7584E0A030 /* TVRemoteEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48A15CFA23CE8EAC97E550C /* TVRemoteEvent.swift */; };
+		C14A8583B077C6A114E3FA2E /* TVRemoteBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD005D1FC7E8CCF800A7A8D /* TVRemoteBridge.swift */; };
 		DD1CF93F7DC9FFE47153CC66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 736F52BC5C154BDABC57AF87 /* InfoPlist.strings */; };
 		E17CAB73BF040EF4D2144E8B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 177438F837C09688D21ED447 /* AppIcon.icns */; };
 		E1D375F7BAA3831866169CAF /* RemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3313645D43B74E627A081C /* RemoteCommand.swift */; };
@@ -61,6 +65,7 @@
 		64A1070718B286CD6A3E6EE0 /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
 		6FECE0A27FD3C833FE3EA4AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		755DD8ED54C6FDD793EEC9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7CD005D1FC7E8CCF800A7A8D /* TVRemoteBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVRemoteBridge.swift; sourceTree = "<group>"; };
 		8C0DCFAEB49C986610272399 /* MacTVCEC */ = {isa = PBXFileReference; includeInIndex = 0; path = MacTVCEC; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E28109822042C140741F200 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6079B74CA16AB79FF0B6B81 /* RemoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteController.swift; sourceTree = "<group>"; };
@@ -71,6 +76,7 @@
 		C2B2F3A2593E5D4FB7CA5E1B /* MacTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1F9DD8CFF0E71B5152698B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D2DEB1A6939F2BB349DA7500 /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
+		F48A15CFA23CE8EAC97E550C /* TVRemoteEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVRemoteEvent.swift; sourceTree = "<group>"; };
 		FE3313645D43B74E627A081C /* RemoteCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +88,7 @@
 				A6079B74CA16AB79FF0B6B81 /* RemoteController.swift */,
 				64A1070718B286CD6A3E6EE0 /* RemoteView.swift */,
 				AE1922B0143EC9624580B1E1 /* SystemVolumeBridge.swift */,
+				7CD005D1FC7E8CCF800A7A8D /* TVRemoteBridge.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -105,6 +112,7 @@
 				37EE66CDAC29C2F25CA13491 /* Localization.swift */,
 				A8DC6D1BF2E5E2A4D23886D8 /* NativeCEC.swift */,
 				FE3313645D43B74E627A081C /* RemoteCommand.swift */,
+				F48A15CFA23CE8EAC97E550C /* TVRemoteEvent.swift */,
 				41EB31AFD1633A37A23B42FC /* VolumeKey.swift */,
 				F7B78BB89C3757CE02EA34FC /* Resources */,
 			);
@@ -248,6 +256,7 @@
 				66B88E61916F4F3063BE3D26 /* Localization.swift in Sources */,
 				A1143DCE435499C025509DB0 /* NativeCEC.swift in Sources */,
 				522291DD7FBCA009566BAE2D /* RemoteCommand.swift in Sources */,
+				4049E17A8E196160A969FA3B /* TVRemoteEvent.swift in Sources */,
 				A16020655443E1CDE07D5B7C /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,10 +269,13 @@
 				8C71F7880367F740F7450B39 /* CECProtocol.swift in Sources */,
 				4F9AFA4CDF6774112A0C2ED9 /* CommandRunner.swift in Sources */,
 				7E86CCE11703E3E2E59E0818 /* Localization.swift in Sources */,
+				682BBE29073686E68BA2BD22 /* NativeCEC.swift in Sources */,
 				E1D375F7BAA3831866169CAF /* RemoteCommand.swift in Sources */,
 				22E74C6CCCC0208ADFA78F2A /* RemoteController.swift in Sources */,
 				7B1FF5E480DDA83E8043ABAE /* RemoteView.swift in Sources */,
 				FF7EA301F03D6520B5DD636F /* SystemVolumeBridge.swift in Sources */,
+				C14A8583B077C6A114E3FA2E /* TVRemoteBridge.swift in Sources */,
+				AAA5BFC47760BC7584E0A030 /* TVRemoteEvent.swift in Sources */,
 				5587415736468202FD4F4D37 /* VolumeKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

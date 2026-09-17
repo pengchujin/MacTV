@@ -18,7 +18,7 @@ import SwiftUI
     private let action:(String)->Void
     init(ready:@escaping ()->Bool,action:@escaping (String)->Void, monitoring:Bool = true) {
         self.ready=ready;self.action=action
-        enabled=UserDefaults.standard.object(forKey:"systemVolumeKeys") as? Bool ?? true
+        enabled=UserDefaults.standard.object(forKey:"systemVolumeKeys") == nil ? true : UserDefaults.standard.bool(forKey:"systemVolumeKeys")
         guard monitoring else { return }
         update()
         timer=Timer.scheduledTimer(withTimeInterval:2,repeats:true) { [weak self] _ in

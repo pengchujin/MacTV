@@ -170,9 +170,13 @@ struct RemoteView: View {
 }
 
 struct SettingsView: View {
+    @ObservedObject var tvRemote: TVRemoteBridge
     @ObservedObject var model: RemoteController
     @ObservedObject var volumeKeys: SystemVolumeBridge
     @AppStorage("largeText") var largeText = false
+    init(model: RemoteController, volumeKeys: SystemVolumeBridge, tvRemote: TVRemoteBridge) {
+        self.model = model; self.volumeKeys = volumeKeys; self.tvRemote = tvRemote
+    }
     var body: some View {
         Form {
             Section(L("电视与音响")) {
@@ -193,6 +197,16 @@ struct SettingsView: View {
                     Button(L("允许辅助功能…")) { volumeKeys.requestPermission() }
                 }
                 Text(L("仅在声音输出到 HDMI 时接管音量键。切换到耳机或内置扬声器后，音量键恢复系统控制。Option + 音量键仍打开系统声音设置。"))
+                    .font(.callout).foregroundStyle(.secondary)
+            }
+            Section(L("电视遥控器（试验功能）")) {
+                Toggle(L("用电视遥控器控制 Mac"), isOn: $tvRemote.enabled)
+                if tvRemote.enabled {
+                    Toggle(L("确认键切换播放/暂停"), isOn: $tvRemote.mapSelect)
+                }
+                Text(tvRemote.status).foregroundStyle(.secondary)
+                if !tvRemote.lastReceived.isEmpty { Text(tvRemote.lastReceived).font(.caption).foregroundStyle(.secondary) }
+                Text(L("电视必须转发 CEC 按键。确认键映射默认关闭，因为部分 Mac 还会将它作为 Return 发送给当前 App。音量键通常由电视自身处理，HDMI 输出可能不支持 Mac 软件音量。"))
                     .font(.callout).foregroundStyle(.secondary)
             }
             Section(L("外观与操作")) {
