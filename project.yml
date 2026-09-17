@@ -1,0 +1,68 @@
+name: ScreenRemote
+options:
+  deploymentTarget:
+    macOS: '14.0'
+  developmentLanguage: en
+  knownRegions: [en, zh-Hans, zh-Hant]
+settings:
+  base:
+    SWIFT_VERSION: '5.0'
+    MACOSX_DEPLOYMENT_TARGET: '14.0'
+    ARCHS: arm64
+    ENABLE_HARDENED_RUNTIME: YES
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: Apple Development
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 1
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CODE_SIGN_INJECT_BASE_ENTITLEMENTS: NO
+    DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+    SWIFT_OPTIMIZATION_LEVEL: '-O'
+targets:
+  ScreenVolumeCEC:
+    type: tool
+    platform: macOS
+    sources:
+      - path: CLI
+      - path: Sources/CECCore
+        excludes: [Resources, CommandRunner.swift, VolumeKey.swift]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: uk.shenqi.maccec.helper
+        SKIP_INSTALL: YES
+        GENERATE_INFOPLIST_FILE: YES
+        OTHER_LDFLAGS: ['$(inherited)', '-framework', IOKit]
+  ScreenRemote:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+        excludes: [MakeIcon.swift, Resources]
+      - path: Sources/CECCore
+        excludes: [NativeCEC.swift]
+      - path: App/Resources/AppIcon.icns
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_NAME: Screen Remote
+        EXECUTABLE_NAME: ScreenVolume
+        PRODUCT_BUNDLE_IDENTIFIER: uk.shenqi.maccec
+        INFOPLIST_FILE: Config/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        SKIP_INSTALL: NO
+    dependencies:
+      - target: ScreenVolumeCEC
+        link: false
+        embed: true
+        codeSign: true
+        copy:
+          destination: executables
+schemes:
+  ScreenRemote:
+    build:
+      targets:
+        ScreenRemote: all
+    run:
+      config: Debug
+    archive:
+      config: Release

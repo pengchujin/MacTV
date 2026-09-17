@@ -1,0 +1,20 @@
+.build/
+build/
+.DS_Store
+output/
+dist/
+*.xcarchive/
+xcuserdata/
+*.xcuserstate
+*.xcdistributionlogs/
+*.p12
+*.p8
+*.mobileprovision
+# Local investigation history; public guidance lives in docs/COMPATIBILITY.md.
+docs/RESEARCH.md
+docs/VALIDATION.md
+docs/DESIGN.md
+docs/CEC-MAPPING-AUDIT.md
+docs/REDMI-ADB-FINDINGS.md
+docs/TV-BRAND-COMPATIBILITY.md
+docs/previews/
