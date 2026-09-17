@@ -24,7 +24,7 @@ shasum -a 256 MacTV-macOS-arm64.zip
 
 ## 同步下载入口与 Homebrew
 
-发布新版本后，更新 README 下载按钮中的版本和 ZIP 文件名，使按钮始终直达安装包。
+发布新版本后，同步更新 `README.md` 与 `README.en.md` 下载按钮中的版本和 ZIP 文件名，使按钮始终直达安装包。
 
 在 [pengchujin/homebrew-tap](https://github.com/pengchujin/homebrew-tap) 更新 `Casks/mactv.rb` 的 `version` 和 `sha256`。使用公开 Release 下载文件计算校验值，然后验证：
 

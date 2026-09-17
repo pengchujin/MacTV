@@ -1,3 +1,5 @@
+<p align="center"><strong>简体中文</strong> · <a href="README.en.md">English</a></p>
+
 <div align="center">
   <img src="docs/images/app-icon.svg" width="108" alt="MacTV图标">
   <h1>MacTV · 电视遥控</h1>
