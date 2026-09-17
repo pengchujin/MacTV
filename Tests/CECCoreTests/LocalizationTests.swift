@@ -6,7 +6,7 @@ final class LocalizationTests: XCTestCase {
         XCTAssertEqual(Localization.text("输入源", language: "en"), "Inputs")
         XCTAssertEqual(Localization.text("输入源", language: "zh-Hans"), "输入源")
         XCTAssertEqual(Localization.text("输入源", language: "zh-Hant"), "輸入源")
-        XCTAssertEqual(Localization.text("屏幕遥控", language: "zh-Hant"), "螢幕遙控")
+        XCTAssertEqual(Localization.text("MacTV", language: "zh-Hant"), "MacTV")
     }
     func testFormattingKeepsDeviceNamesLiteral() {
         XCTAssertEqual(Localization.format("Sent “%@” at %@", arguments: ["TV %@ 100%", "10:00"]), "Sent “TV %@ 100%” at 10:00")

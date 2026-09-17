@@ -1,24 +1,24 @@
 #!/bin/zsh
 set -eu
 cd "${0:A:h}"
-APP="$PWD/build/屏幕遥控.app"
+APP="$PWD/build/MacTV.app"
 SIGN_IDENTITY="${SCREEN_REMOTE_SIGN_IDENTITY:--}"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
-xcrun swiftc -O -parse-as-library -target arm64-apple-macos14.0 Sources/CECCore/CommandRunner.swift Sources/CECCore/Localization.swift Sources/CECCore/CECProtocol.swift Sources/CECCore/RemoteCommand.swift Sources/CECCore/VolumeKey.swift App/SystemVolumeBridge.swift App/RemoteController.swift App/RemoteView.swift App/AppDelegate.swift -o "$APP/Contents/MacOS/ScreenVolume" -framework SwiftUI -framework AppKit
-xcrun swiftc -O -target arm64-apple-macos14.0 Sources/CECCore/Localization.swift Sources/CECCore/CECProtocol.swift Sources/CECCore/NativeCEC.swift Sources/CECCore/RemoteCommand.swift CLI/main.swift -o "$APP/Contents/MacOS/ScreenVolumeCEC" -framework IOKit
+xcrun swiftc -O -parse-as-library -target arm64-apple-macos14.0 Sources/CECCore/CommandRunner.swift Sources/CECCore/Localization.swift Sources/CECCore/CECProtocol.swift Sources/CECCore/RemoteCommand.swift Sources/CECCore/VolumeKey.swift App/SystemVolumeBridge.swift App/RemoteController.swift App/RemoteView.swift App/AppDelegate.swift -o "$APP/Contents/MacOS/MacTV" -framework SwiftUI -framework AppKit
+xcrun swiftc -O -target arm64-apple-macos14.0 Sources/CECCore/Localization.swift Sources/CECCore/CECProtocol.swift Sources/CECCore/NativeCEC.swift Sources/CECCore/RemoteCommand.swift CLI/main.swift -o "$APP/Contents/MacOS/MacTVCEC" -framework IOKit
 cp -R Sources/CECCore/Resources/*.lproj "$APP/Contents/Resources/"
-codesign --force --sign "$SIGN_IDENTITY" "$APP/Contents/MacOS/ScreenVolumeCEC"
+codesign --force --sign "$SIGN_IDENTITY" "$APP/Contents/MacOS/MacTVCEC"
 cat > "$APP/Contents/Info.plist" <<'PLIST'
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0"><dict>
-<key>CFBundleExecutable</key><string>ScreenVolume</string>
+<key>CFBundleExecutable</key><string>MacTV</string>
 <key>CFBundleIdentifier</key><string>uk.shenqi.maccec</string>
-<key>CFBundleName</key><string>屏幕遥控</string>
-<key>CFBundleDisplayName</key><string>屏幕遥控</string>
+<key>CFBundleName</key><string>MacTV</string>
+<key>CFBundleDisplayName</key><string>MacTV</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.1.0</string>
-<key>CFBundleVersion</key><string>1</string>
+<key>CFBundleShortVersionString</key><string>0.1.1</string>
+<key>CFBundleVersion</key><string>2</string>
 <key>CFBundleDevelopmentRegion</key><string>en</string>
 <key>CFBundleLocalizations</key><array><string>en</string><string>zh-Hans</string><string>zh-Hant</string></array>
 <key>LSMinimumSystemVersion</key><string>14.0</string>

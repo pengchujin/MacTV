@@ -1,20 +1,20 @@
 <div align="center">
-  <img src="App/Resources/AppIcon.png" width="108" alt="屏幕遥控图标">
-  <h1>屏幕遥控 · Screen Remote</h1>
-  <p>把电视当显示器，也让 Mac 成为遥控器。</p>
-  <p>原生 macOS 菜单栏 App，通过 HDMI-CEC 控制电视。无需 Wi-Fi 配对。</p>
+  <img src="App/Resources/AppIcon.png" width="108" alt="MacTV图标">
+  <h1>MacTV · 电视遥控</h1>
+  <p>让电视更好用作 Mac 显示器。</p>
+  <p>通过 HDMI-CEC，在 Mac 上调节电视音量、切换输入源、操作菜单。</p>
   <p>
     <img src="https://img.shields.io/badge/macOS-14%2B-111111?style=flat-square" alt="macOS 14+">
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/mac-cec/releases">下载版本</a> · <a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/mac-cec/issues">反馈问题</a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases">下载版本</a> · <a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
   <br>
-  <img src="docs/images/remote.png" width="320" alt="屏幕遥控：方向键、菜单、输入源和音量控制">
+  <img src="docs/images/remote.png" width="320" alt="MacTV：方向键、菜单、输入源和音量控制">
   <p><sub>实际界面的离线示例，设备名称为演示数据。</sub></p>
 </div>
 
-> **v0.1.0** 已使用 Developer ID 签名并通过 Apple 公证。仅提供 Apple Silicon 版本。
+> **v0.1.1** 已使用 Developer ID 签名并通过 Apple 公证。仅提供 Apple Silicon 版本。
 
 ## 熟悉的音量键，现在控制电视
 
@@ -51,7 +51,7 @@ App 直接使用 macOS 非公开 IOKit 接口发送 CEC，接口可能随系统�
 
 ## 自己构建
 
-打开 `ScreenRemote.xcodeproj`，选择 **ScreenRemote** scheme，在 Signing & Capabilities 中选择自己的开发者团队，然后运行或 **Product → Archive**。
+打开 `MacTV.xcodeproj`，选择 **MacTV** scheme，在 Signing & Capabilities 中选择自己的开发者团队，然后运行或 **Product → Archive**。
 
 ```sh
 swift test

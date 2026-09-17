@@ -24,9 +24,9 @@ import SwiftUI
             render(to: CommandLine.arguments[index + 1]); NSApp.terminate(nil); return
         }
         item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        item.button?.image = NSImage(systemSymbolName: "appletvremote.gen4", accessibilityDescription: L("屏幕遥控"))
+        item.button?.image = NSImage(systemSymbolName: "appletvremote.gen4", accessibilityDescription: L("MacTV"))
         item.button?.image?.isTemplate = true
-        item.button?.toolTip = L("屏幕遥控 · 点击打开，右键查看命令")
+        item.button?.toolTip = L("MacTV · 点击打开，右键查看命令")
         item.button?.target = self; item.button?.action = #selector(toggle)
         item.button?.sendAction(on: [.leftMouseUp, .rightMouseUp])
         popover.behavior = .transient
@@ -91,7 +91,7 @@ import SwiftUI
         if settingsWindow == nil {
             let controller = NSHostingController(rootView: SettingsView(model: model, volumeKeys: volumeKeys))
             let window = NSWindow(contentViewController: controller)
-            window.title = L("屏幕遥控设置")
+            window.title = L("MacTV 设置")
             window.styleMask = [.titled, .closable, .miniaturizable, .resizable]
             window.setContentSize(NSSize(width: 500, height: 650))
             window.center(); window.isReleasedWhenClosed = false
@@ -122,7 +122,7 @@ import SwiftUI
         menu.addItem(.separator())
         add(L("重新检测电视"), #selector(refresh))
         add(L("设置…"), #selector(showSettings), key: ",")
-        add(L("退出屏幕遥控"), #selector(quit), key: "q")
+        add(L("退出 MacTV"), #selector(quit), key: "q")
         item.menu = menu; item.button?.performClick(nil)
     }
     func menuDidClose(_ menu: NSMenu) { item.menu = nil }

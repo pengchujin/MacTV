@@ -64,7 +64,7 @@ struct RemoteView: View {
                     Button(L("查询实际音量")) { model.perform("audioStatus") }.disabled(!model.ready)
                     Button(L("设置…"), action: openSettings).keyboardShortcut(",")
                     Divider()
-                    Button(L("退出屏幕遥控")) { NSApp.terminate(nil) }.keyboardShortcut("q")
+                    Button(L("退出 MacTV")) { NSApp.terminate(nil) }.keyboardShortcut("q")
                 } label: {
                     Image(systemName: "ellipsis").frame(width: 30, height: 30)
                 }.menuStyle(.borderlessButton).menuIndicator(.hidden).fixedSize().accessibilityLabel(L("更多操作"))
@@ -87,10 +87,10 @@ struct RemoteView: View {
                     } label: { Text(model.selectedName).font(.system(size: largeText ? 21 : 16, weight: .semibold)) }
                     .menuStyle(.borderlessButton).disabled(model.busy)
                 } else {
-                    Text(model.devices.isEmpty ? L("屏幕遥控") : model.selectedName)
+                    Text(model.devices.isEmpty ? L("MacTV") : model.selectedName)
                         .font(.system(size: largeText ? 21 : 16, weight: .semibold)).lineLimit(1)
                 }
-                Text(model.scanning ? L("正在寻找电视…") : model.devices.isEmpty ? L("让 Mac 成为电视遥控器") : L("HDMI · 已连接"))
+                Text(model.scanning ? L("正在寻找电视…") : model.devices.isEmpty ? L("让电视更好用作 Mac 显示器") : L("HDMI · 已连接"))
                     .font(.system(size: largeText ? 16 : 12)).foregroundStyle(secondary)
             }
             Spacer(minLength: 0)

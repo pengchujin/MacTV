@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22E74C6CCCC0208ADFA78F2A /* RemoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6079B74CA16AB79FF0B6B81 /* RemoteController.swift */; };
+		436852908978F7FBC4593446 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BF8571AA4A8C2BF7D0FB257 /* Localizable.strings */; };
+		4F9AFA4CDF6774112A0C2ED9 /* CommandRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DEB1A6939F2BB349DA7500 /* CommandRunner.swift */; };
+		522291DD7FBCA009566BAE2D /* RemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3313645D43B74E627A081C /* RemoteCommand.swift */; };
+		5587415736468202FD4F4D37 /* VolumeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EB31AFD1633A37A23B42FC /* VolumeKey.swift */; };
+		5CEFE54B5E03348A0C6837CF /* MacTVCEC in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 8C0DCFAEB49C986610272399 /* MacTVCEC */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		66B88E61916F4F3063BE3D26 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE66CDAC29C2F25CA13491 /* Localization.swift */; };
+		7B1FF5E480DDA83E8043ABAE /* RemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A1070718B286CD6A3E6EE0 /* RemoteView.swift */; };
+		7E86CCE11703E3E2E59E0818 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE66CDAC29C2F25CA13491 /* Localization.swift */; };
+		8C71F7880367F740F7450B39 /* CECProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B354393CC12A8C041F8D30B1 /* CECProtocol.swift */; };
+		9B326C3D68B7994A0EA3233C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755DD8ED54C6FDD793EEC9F4 /* AppDelegate.swift */; };
+		A1143DCE435499C025509DB0 /* NativeCEC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC6D1BF2E5E2A4D23886D8 /* NativeCEC.swift */; };
+		A16020655443E1CDE07D5B7C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB62A64A1C102CBD5456FE63 /* main.swift */; };
+		DD1CF93F7DC9FFE47153CC66 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 736F52BC5C154BDABC57AF87 /* InfoPlist.strings */; };
+		E17CAB73BF040EF4D2144E8B /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 177438F837C09688D21ED447 /* AppIcon.icns */; };
+		E1D375F7BAA3831866169CAF /* RemoteCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3313645D43B74E627A081C /* RemoteCommand.swift */; };
+		F29A2781AC3F311316F774B9 /* CECProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B354393CC12A8C041F8D30B1 /* CECProtocol.swift */; };
+		FF7EA301F03D6520B5DD636F /* SystemVolumeBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1922B0143EC9624580B1E1 /* SystemVolumeBridge.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD965C8F98724B776CA64363 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 06CBCE74A5F05B4CD7BDD35C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0B8A35744B9C946F525F4352;
+			remoteInfo = MacTVCEC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0A93CBEFE1C683456A2E70A6 /* Embed Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				5CEFE54B5E03348A0C6837CF /* MacTVCEC in Embed Dependencies */,
+			);
+			name = "Embed Dependencies";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0AF15228792695C679B8A5E6 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		177438F837C09688D21ED447 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		37EE66CDAC29C2F25CA13491 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		3A0B41122C2A5255FF3CAC20 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		41EB31AFD1633A37A23B42FC /* VolumeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeKey.swift; sourceTree = "<group>"; };
+		5D4B8FE7F75CC16A6C2227A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		64A1070718B286CD6A3E6EE0 /* RemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteView.swift; sourceTree = "<group>"; };
+		6FECE0A27FD3C833FE3EA4AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		755DD8ED54C6FDD793EEC9F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8C0DCFAEB49C986610272399 /* MacTVCEC */ = {isa = PBXFileReference; includeInIndex = 0; path = MacTVCEC; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E28109822042C140741F200 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A6079B74CA16AB79FF0B6B81 /* RemoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteController.swift; sourceTree = "<group>"; };
+		A8DC6D1BF2E5E2A4D23886D8 /* NativeCEC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeCEC.swift; sourceTree = "<group>"; };
+		AB62A64A1C102CBD5456FE63 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AE1922B0143EC9624580B1E1 /* SystemVolumeBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemVolumeBridge.swift; sourceTree = "<group>"; };
+		B354393CC12A8C041F8D30B1 /* CECProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CECProtocol.swift; sourceTree = "<group>"; };
+		C2B2F3A2593E5D4FB7CA5E1B /* MacTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1F9DD8CFF0E71B5152698B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D2DEB1A6939F2BB349DA7500 /* CommandRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandRunner.swift; sourceTree = "<group>"; };
+		FE3313645D43B74E627A081C /* RemoteCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommand.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		430222BC9435982FEF53B663 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				755DD8ED54C6FDD793EEC9F4 /* AppDelegate.swift */,
+				A6079B74CA16AB79FF0B6B81 /* RemoteController.swift */,
+				64A1070718B286CD6A3E6EE0 /* RemoteView.swift */,
+				AE1922B0143EC9624580B1E1 /* SystemVolumeBridge.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		55E95D7CBBA41F723D0C50A1 = {
+			isa = PBXGroup;
+			children = (
+				430222BC9435982FEF53B663 /* App */,
+				5FA7827C55F112D72FC599E0 /* CECCore */,
+				759C6A5B1D8287A2E90D32F7 /* CLI */,
+				B3EAC5980AEFE6DF6217B00B /* Resources */,
+				E8E8A169EBE612A70ABD9D84 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FA7827C55F112D72FC599E0 /* CECCore */ = {
+			isa = PBXGroup;
+			children = (
+				B354393CC12A8C041F8D30B1 /* CECProtocol.swift */,
+				D2DEB1A6939F2BB349DA7500 /* CommandRunner.swift */,
+				37EE66CDAC29C2F25CA13491 /* Localization.swift */,
+				A8DC6D1BF2E5E2A4D23886D8 /* NativeCEC.swift */,
+				FE3313645D43B74E627A081C /* RemoteCommand.swift */,
+				41EB31AFD1633A37A23B42FC /* VolumeKey.swift */,
+				F7B78BB89C3757CE02EA34FC /* Resources */,
+			);
+			name = CECCore;
+			path = Sources/CECCore;
+			sourceTree = "<group>";
+		};
+		759C6A5B1D8287A2E90D32F7 /* CLI */ = {
+			isa = PBXGroup;
+			children = (
+				AB62A64A1C102CBD5456FE63 /* main.swift */,
+			);
+			path = CLI;
+			sourceTree = "<group>";
+		};
+		B3EAC5980AEFE6DF6217B00B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				177438F837C09688D21ED447 /* AppIcon.icns */,
+			);
+			name = Resources;
+			path = App/Resources;
+			sourceTree = "<group>";
+		};
+		E8E8A169EBE612A70ABD9D84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2B2F3A2593E5D4FB7CA5E1B /* MacTV.app */,
+				8C0DCFAEB49C986610272399 /* MacTVCEC */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7B78BB89C3757CE02EA34FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				736F52BC5C154BDABC57AF87 /* InfoPlist.strings */,
+				1BF8571AA4A8C2BF7D0FB257 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B8A35744B9C946F525F4352 /* MacTVCEC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD02C4211A6AAC295D15F1E4 /* Build configuration list for PBXNativeTarget "MacTVCEC" */;
+			buildPhases = (
+				DE4638774BCF7AFDDE078B28 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacTVCEC;
+			packageProductDependencies = (
+			);
+			productName = MacTVCEC;
+			productReference = 8C0DCFAEB49C986610272399 /* MacTVCEC */;
+			productType = "com.apple.product-type.tool";
+		};
+		94F4200560787830098FA4ED /* MacTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E25D900941BAF91C8E784BB /* Build configuration list for PBXNativeTarget "MacTV" */;
+			buildPhases = (
+				E8C9E2B6596D929CC4E48349 /* Sources */,
+				4AA16245E5CC5CB3DAFB74D9 /* Resources */,
+				0A93CBEFE1C683456A2E70A6 /* Embed Dependencies */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDDC359AFEF25407AD921C79 /* PBXTargetDependency */,
+			);
+			name = MacTV;
+			packageProductDependencies = (
+			);
+			productName = MacTV;
+			productReference = C2B2F3A2593E5D4FB7CA5E1B /* MacTV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		06CBCE74A5F05B4CD7BDD35C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0B8A35744B9C946F525F4352 = {
+						ProvisioningStyle = Automatic;
+					};
+					94F4200560787830098FA4ED = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A5E98FABA11D05113E2CEE56 /* Build configuration list for PBXProject "MacTV" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+				"zh-Hans",
+				"zh-Hant",
+			);
+			mainGroup = 55E95D7CBBA41F723D0C50A1;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E8E8A169EBE612A70ABD9D84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B8A35744B9C946F525F4352 /* MacTVCEC */,
+				94F4200560787830098FA4ED /* MacTV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AA16245E5CC5CB3DAFB74D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E17CAB73BF040EF4D2144E8B /* AppIcon.icns in Resources */,
+				DD1CF93F7DC9FFE47153CC66 /* InfoPlist.strings in Resources */,
+				436852908978F7FBC4593446 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE4638774BCF7AFDDE078B28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F29A2781AC3F311316F774B9 /* CECProtocol.swift in Sources */,
+				66B88E61916F4F3063BE3D26 /* Localization.swift in Sources */,
+				A1143DCE435499C025509DB0 /* NativeCEC.swift in Sources */,
+				522291DD7FBCA009566BAE2D /* RemoteCommand.swift in Sources */,
+				A16020655443E1CDE07D5B7C /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8C9E2B6596D929CC4E48349 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B326C3D68B7994A0EA3233C /* AppDelegate.swift in Sources */,
+				8C71F7880367F740F7450B39 /* CECProtocol.swift in Sources */,
+				4F9AFA4CDF6774112A0C2ED9 /* CommandRunner.swift in Sources */,
+				7E86CCE11703E3E2E59E0818 /* Localization.swift in Sources */,
+				E1D375F7BAA3831866169CAF /* RemoteCommand.swift in Sources */,
+				22E74C6CCCC0208ADFA78F2A /* RemoteController.swift in Sources */,
+				7B1FF5E480DDA83E8043ABAE /* RemoteView.swift in Sources */,
+				FF7EA301F03D6520B5DD636F /* SystemVolumeBridge.swift in Sources */,
+				5587415736468202FD4F4D37 /* VolumeKey.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDDC359AFEF25407AD921C79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0B8A35744B9C946F525F4352 /* MacTVCEC */;
+			targetProxy = FD965C8F98724B776CA64363 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1BF8571AA4A8C2BF7D0FB257 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D4B8FE7F75CC16A6C2227A2 /* en */,
+				3A0B41122C2A5255FF3CAC20 /* zh-Hans */,
+				CD1F9DD8CFF0E71B5152698B /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		736F52BC5C154BDABC57AF87 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8E28109822042C140741F200 /* en */,
+				6FECE0A27FD3C833FE3EA4AA /* zh-Hans */,
+				0AF15228792695C679B8A5E6 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CC2B07C113D2C1B54EE5865 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_NAME = MacTV;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.shenqi.maccec;
+				PRODUCT_NAME = MacTV;
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		47DC7BC41C11407B46758008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5A107EF31AEA850F5C5F63F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 2;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8625011BE9AD1A6EE85470A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					IOKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.shenqi.maccec.helper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9F166121C31C964E2921C74B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_NAME = MacTV;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Config/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.shenqi.maccec;
+				PRODUCT_NAME = MacTV;
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Release;
+		};
+		C7A70F4740318F7FFCBF4FCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					IOKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = uk.shenqi.maccec.helper;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E25D900941BAF91C8E784BB /* Build configuration list for PBXNativeTarget "MacTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CC2B07C113D2C1B54EE5865 /* Debug */,
+				9F166121C31C964E2921C74B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A5E98FABA11D05113E2CEE56 /* Build configuration list for PBXProject "MacTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A107EF31AEA850F5C5F63F2 /* Debug */,
+				47DC7BC41C11407B46758008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CD02C4211A6AAC295D15F1E4 /* Build configuration list for PBXNativeTarget "MacTVCEC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7A70F4740318F7FFCBF4FCD /* Debug */,
+				8625011BE9AD1A6EE85470A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 06CBCE74A5F05B4CD7BDD35C /* Project object */;
+}

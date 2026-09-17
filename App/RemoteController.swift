@@ -51,7 +51,7 @@ struct TestRecord: Codable, Identifiable {
     var selectedName:String { targetChoices(for:target).first(where:{$0.address == target})?.name ?? L("未发现设备") }
     var latest:TestRecord? { records.first { $0.id == lastRecord } }
     func call(_ args:[String],timeout:Double=14) async -> Result<CECResponse,Error> {
-        guard let helper=Bundle.main.url(forAuxiliaryExecutable:"ScreenVolumeCEC")?.path else { return .failure(CECError.failure(L("内置控制组件缺失，请重新安装"))) }
+        guard let helper=Bundle.main.url(forAuxiliaryExecutable:"MacTVCEC")?.path else { return .failure(CECError.failure(L("内置控制组件缺失，请重新安装"))) }
         let result=await Task.detached(priority:.userInitiated) { CommandRunner.run(helper,arguments:args,timeout:timeout) }.value
         guard result.succeeded else { return .failure(CECError.failure(result.timedOut ? L("连接超时，请重新检测 HDMI 连接") : result.output.trimmingCharacters(in:.whitespacesAndNewlines))) }
         do { return .success(try JSONDecoder().decode(CECResponse.self,from:Data(result.output.utf8))) }
@@ -138,7 +138,7 @@ struct TestRecord: Codable, Identifiable {
         if let data=try? JSONEncoder().encode(records) { try? data.write(to:storage.appendingPathComponent("tests.json"),options:.atomic) }
     }
     func copyReport() {
-        let content=L("屏幕遥控 0.1 · %@\n%@\n", Date().formatted(), String(ProcessInfo.processInfo.operatingSystemVersionString)) + records.map {
+        let content=L("MacTV 0.1.1 · %@\n%@\n", Date().formatted(), String(ProcessInfo.processInfo.operatingSystemVersionString)) + records.map {
             L("%@ | HDMI %@ | %@（目标 %@） | %@ | %@ | 实测：%@", String($0.date.formatted()), String($0.connection), String($0.deviceName ?? L("设备")), String($0.target), String($0.title), String($0.result), String($0.observation ?? L("未标记")))
         }.joined(separator:"\n")
         NSPasteboard.general.clearContents(); NSPasteboard.general.setString(content,forType:.string)

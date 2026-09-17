@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA27CAE79757A25394CE17DE"
-               BuildableName = "ScreenRemote.app"
-               BlueprintName = "ScreenRemote"
-               ReferencedContainer = "container:ScreenRemote.xcodeproj">
+               BlueprintIdentifier = "94F4200560787830098FA4ED"
+               BuildableName = "MacTV.app"
+               BlueprintName = "MacTV"
+               ReferencedContainer = "container:MacTV.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA27CAE79757A25394CE17DE"
-            BuildableName = "ScreenRemote.app"
-            BlueprintName = "ScreenRemote"
-            ReferencedContainer = "container:ScreenRemote.xcodeproj">
+            BlueprintIdentifier = "94F4200560787830098FA4ED"
+            BuildableName = "MacTV.app"
+            BlueprintName = "MacTV"
+            ReferencedContainer = "container:MacTV.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA27CAE79757A25394CE17DE"
-            BuildableName = "ScreenRemote.app"
-            BlueprintName = "ScreenRemote"
-            ReferencedContainer = "container:ScreenRemote.xcodeproj">
+            BlueprintIdentifier = "94F4200560787830098FA4ED"
+            BuildableName = "MacTV.app"
+            BlueprintName = "MacTV"
+            ReferencedContainer = "container:MacTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA27CAE79757A25394CE17DE"
-            BuildableName = "ScreenRemote.app"
-            BlueprintName = "ScreenRemote"
-            ReferencedContainer = "container:ScreenRemote.xcodeproj">
+            BlueprintIdentifier = "94F4200560787830098FA4ED"
+            BuildableName = "MacTV.app"
+            BlueprintName = "MacTV"
+            ReferencedContainer = "container:MacTV.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
