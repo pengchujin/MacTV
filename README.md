@@ -52,7 +52,7 @@ brew upgrade --cask pengchujin/tap/mactv
 打开 App 设置，开启“用 Mac 音量键控制电视”，并在 macOS「隐私与安全性 → 辅助功能」中允许 App。切换到耳机或内置扬声器后，音量键恢复系统控制。
 
 <p align="center">
-  <img src="docs/images/settings.png" width="480" alt="设置界面：选择音量控制设备、启用 Mac 音量键和查看连接诊断">
+  <img src="docs/images/settings-live.png" width="480" alt="设置界面：选择音量控制设备、启用 Mac 音量键和查看连接诊断">
 </p>
 
 ## 使用前了解
