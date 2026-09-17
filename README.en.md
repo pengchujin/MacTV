@@ -4,7 +4,7 @@
   <img src="docs/images/app-icon.svg" width="108" alt="MacTV icon">
   <h1>MacTV · TV Remote</h1>
   <p>Make your TV feel more at home with your Mac.</p>
-  <p>Control TV volume, switch inputs, and navigate menus from your Mac over HDMI-CEC.</p>
+  <p>Control your TV from your Mac, and your Mac with your TV remote. Connected over HDMI-CEC, with no Wi-Fi required.</p>
   <p>
     <img src="https://img.shields.io/badge/macOS-14%2B-111111?style=flat-square" alt="macOS 14+">
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
@@ -17,13 +17,15 @@
   <p><sub>MacTV running with a MiTV-MFFU1 display. Screenshots show the Chinese interface; English is also supported.</sub></p>
 </div>
 
-## Your familiar volume keys, now for your TV
+## Control your TV and Mac, both ways
+
+MacTV is a Mac menu bar app that lets you adjust TV volume with your familiar keyboard controls and access TV power, menus, and inputs from the menu bar. Your TV remote can also control playback, switch tracks and apps, and move and click the mouse on your Mac. Available features depend on your TV and Mac.
 
 - **Keyboard volume keys** — Use your Mac’s volume and mute keys when audio is routed through HDMI.
 - **Control your Mac with a TV remote** — Switch tracks and apps or play/pause in media mode. Mouse mode adds accelerated movement, six speed levels, and hold-and-release OK to right-click. Back maps to Esc. Enable it in Settings; available keys depend on your TV.
 - **Menu bar remote** — Navigate, confirm, and go back, with wake, standby, and menu commands where supported by your TV.
 - **Input selection** — Request a switch back to this Mac or to another HDMI input. Results depend on the TV.
-- **Native experience** — Light and dark appearance, larger text, VoiceOver, and Simplified Chinese, Traditional Chinese, and English support.
+- **Native experience** — Light and dark appearance, VoiceOver, and Simplified Chinese, Traditional Chinese, and English support.
 
 Open the downloaded DMG and drag MacTV into Applications to install.
 

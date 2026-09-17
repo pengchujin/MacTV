@@ -4,7 +4,7 @@
   <img src="docs/images/app-icon.svg" width="108" alt="MacTV图标">
   <h1>MacTV · 电视遥控</h1>
   <p>让电视更好用作 Mac 显示器。</p>
-  <p>通过 HDMI-CEC，在 Mac 上调节电视音量、切换输入源、操作菜单。</p>
+  <p>用 Mac 控制电视，也用电视遥控器控制 Mac。通过 HDMI-CEC 连接，无需 Wi-Fi。</p>
   <p>
     <img src="https://img.shields.io/badge/macOS-14%2B-111111?style=flat-square" alt="macOS 14+">
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
@@ -17,13 +17,15 @@
   <p><sub>MacTV 实机界面 · MiTV-MFFU1</sub></p>
 </div>
 
-## 熟悉的音量键，现在控制电视
+## Mac 与电视，双向遥控
+
+MacTV 是一款 Mac 菜单栏应用，让你用熟悉的音量键调节电视音量，也能从菜单栏控制电视电源、菜单和输入源。反过来，电视遥控器也能用来控制 Mac 的播放、切歌、切换应用，以及移动鼠标和点击。具体功能取决于电视和 Mac 的支持情况。
 
 - **键盘音量键** — HDMI 音频输出时，使用 Mac 的音量加减和静音键。
 - **用电视遥控器控制 Mac** — 媒体模式支持切歌、播放暂停和切换应用；鼠标模式支持移动、长按加速、6 档速度和长按确认后松开右击。返回键映射为 Esc。需在设置中开启，按键支持取决于电视。
 - **菜单栏遥控器** — 方向、确认、返回，以及电视支持的唤醒、待机和菜单操作。
 - **输入源** — 请求切回这台 Mac，或切换 HDMI 输入；实际效果取决于电视。
-- **原生体验** — 浅色与深色外观、大字号、VoiceOver，支持简体中文、繁体中文和英文。
+- **原生体验** — 浅色与深色外观、VoiceOver，支持简体中文、繁体中文和英文。
 
 打开下载的 DMG，将 MacTV 拖入「应用程序」即可安装。
 
