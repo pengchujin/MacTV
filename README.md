@@ -10,18 +10,19 @@
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.1/MacTV-v0.1.1-macOS-arm64.zip"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.zip"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
   <p><a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
   <br>
   <img src="docs/images/mactv-live.png" width="640" alt="MacTV 连接 REDMI 显示器，展开输入源菜单">
   <p><sub>MacTV 实机界面 · MiTV-MFFU1</sub></p>
 </div>
 
-> **v0.1.1** 已使用 Developer ID 签名并通过 Apple 公证。仅提供 Apple Silicon 版本。
+> **v0.1.2** 已使用 Developer ID 签名并通过 Apple 公证。仅提供 Apple Silicon 版本。
 
 ## 熟悉的音量键，现在控制电视
 
 - **键盘音量键** — HDMI 音频输出时，使用 Mac 的音量加减和静音键。
+- **用电视遥控器控制 Mac** — 媒体模式支持切歌、播放暂停和切换应用；鼠标模式支持移动、长按加速、6 档速度和长按确认后松开右击。返回键映射为 Esc。需在设置中开启，按键支持取决于电视。
 - **菜单栏遥控器** — 方向、确认、返回，以及电视支持的唤醒、待机和菜单操作。
 - **输入源** — 请求切回这台 Mac，或切换 HDMI 输入；实际效果取决于电视。
 - **原生体验** — 浅色与深色外观、大字号、VoiceOver，支持简体中文、繁体中文和英文。

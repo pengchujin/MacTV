@@ -188,57 +188,75 @@ struct SettingsView: View {
                     if model.devices.isEmpty { Text(L("未发现设备")).tag(UInt8(0)) }
                     ForEach(model.devices) { Text($0.name).tag($0.address) }
                 }.disabled(model.busy)
-                Button(L("重新检测设备")) { model.refresh() }.disabled(model.busy)
             }
             Section(L("键盘")) {
                 Toggle(L("用 Mac 音量键控制电视"), isOn: $volumeKeys.enabled)
-                Text(volumeKeys.status).foregroundStyle(.secondary)
+                Text(L("声音通过 HDMI 播放时生效。"))
+                    .font(.callout).foregroundStyle(.secondary)
                 if volumeKeys.needsPermission {
                     Button(L("允许辅助功能…")) { volumeKeys.requestPermission() }
                 }
-                Text(L("仅在声音输出到 HDMI 时接管音量键。切换到耳机或内置扬声器后，音量键恢复系统控制。Option + 音量键仍打开系统声音设置。"))
-                    .font(.callout).foregroundStyle(.secondary)
             }
-            Section(L("电视遥控器（试验功能）")) {
+            Section(L("电视遥控器")) {
                 Toggle(L("用电视遥控器控制 Mac"), isOn: $tvRemote.enabled)
                 if tvRemote.enabled {
-                    Toggle(L("确认键切换播放/暂停"), isOn: $tvRemote.mapSelect)
-                    Toggle(L("方向键控制切歌和音量"), isOn: $tvRemote.mapNavigation)
-                    Text(L("左：上一首；右：下一首；上/下：Mac 输出音量。HDMI 输出通常不支持软件音量，请用电视音量键。"))
+                    Picker(L("控制模式"), selection: $tvRemote.mode) {
+                        Text(L("媒体控制")).tag(TVRemoteMode.media)
+                        Text(L("鼠标控制")).tag(TVRemoteMode.mouse)
+                    }.pickerStyle(.segmented)
+                    Text(tvRemote.mode == .media
+                         ? L("左右切歌，上下切换应用，确认键播放或暂停，返回键取消。")
+                         : L("方向键移动；确认键轻按单击，长按后松开右击；返回键取消。"))
                         .font(.callout).foregroundStyle(.secondary)
+                    if tvRemote.mode == .mouse {
+                        HStack(spacing: 12) {
+                            Text(L("鼠标速度"))
+                            Slider(value: Binding(get: { Double(tvRemote.pointerSpeedLevel) },
+                                                  set: { tvRemote.pointerSpeedLevel = Int($0) }),
+                                   in: 1...6, step: 1)
+                                .accessibilityLabel(L("鼠标速度"))
+                                .accessibilityValue(L("第 %@ 档", String(tvRemote.pointerSpeedLevel)))
+                            Text("\(tvRemote.pointerSpeedLevel) / 6")
+                                .monospacedDigit().foregroundStyle(.secondary)
+                                .accessibilityHidden(true)
+                        }
+                    }
+                    if !AXIsProcessTrusted() {
+                        Button(L("允许辅助功能…")) { volumeKeys.requestPermission() }
+                    }
                 }
-                Text(tvRemote.status).foregroundStyle(.secondary)
-                if !tvRemote.lastReceived.isEmpty { Text(tvRemote.lastReceived).font(.caption).foregroundStyle(.secondary) }
-                Text(L("电视必须转发 CEC 按键。确认键映射默认关闭，因为部分 Mac 还会将它作为 Return 发送给当前 App。音量键通常由电视自身处理，HDMI 输出可能不支持 Mac 软件音量。"))
-                    .font(.callout).foregroundStyle(.secondary)
             }
-            Section(L("外观与操作")) {
-                Toggle(L("使用大字号"), isOn: $largeText)
-                Text(L("遥控器打开时：方向键移动，Return 确认，Delete 返回。外观跟随系统。"))
-                    .font(.callout).foregroundStyle(.secondary)
-            }
-            Section(L("连接诊断")) {
-                Text(model.status).textSelection(.enabled)
-                HStack {
-                    Button(L("电源状态")) { model.perform("powerStatus") }
-                    Button(L("CEC 版本")) { model.perform("version") }
-                    Button(L("实际音量")) { model.perform("audioStatus") }
-                }.disabled(!model.ready)
-                DisclosureGroup(L("最近的通信记录")) {
-                    VStack(alignment: .leading, spacing: 10) {
+            Section {
+                DisclosureGroup(L("连接帮助")) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(L("请在电视设置中开启 HDMI-CEC。可用的遥控按键因电视而异。"))
+                        Text(L("HDMI 音量无法调节时，请使用电视音量键。部分 Mac 会同时响应遥控器的确认键和 Return。"))
+                        Button(L("重新检测设备")) { model.refresh() }.disabled(model.busy)
+                        Divider()
+                        Text(model.status).textSelection(.enabled)
+                        Text(volumeKeys.status)
+                        if tvRemote.enabled {
+                            Text(tvRemote.status)
+                            if !tvRemote.lastReceived.isEmpty { Text(tvRemote.lastReceived) }
+                        }
+                        HStack {
+                            Button(L("电源状态")) { model.perform("powerStatus") }
+                            Button(L("CEC 版本")) { model.perform("version") }
+                            Button(L("实际音量")) { model.perform("audioStatus") }
+                        }.disabled(!model.ready)
                         ForEach(model.records.prefix(6)) { record in
                             VStack(alignment: .leading, spacing: 3) {
                                 Text(record.title).fontWeight(.medium)
-                                Text(record.result).foregroundStyle(.secondary).textSelection(.enabled)
+                                Text(record.result).textSelection(.enabled)
                             }
                         }
                         Button(L("复制诊断报告")) { model.copyReport() }
-                    }.padding(.vertical, 8)
-                }
-                Text(L("功能取决于电视支持情况。发送完成不代表电视已执行；没有音量反馈时，只提供音量加减。"))
+                    }
                     .font(.callout).foregroundStyle(.secondary)
+                    .padding(.vertical, 8)
+                }
             }
-        }.formStyle(.grouped).font(.system(size: largeText ? 17 : 13)).frame(minWidth: 480, minHeight: 580)
+        }.formStyle(.grouped).font(.system(size: largeText ? 17 : 13)).frame(minWidth: 480, minHeight: 460)
     }
 }
 

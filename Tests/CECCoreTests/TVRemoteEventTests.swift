@@ -72,7 +72,7 @@ extension TVRemoteEventTests {
 extension TVRemoteEventTests {
     func testNavigationMappingIsOptInAndPreservesDedicatedMediaKeys() {
         let keys: [(UInt8, TVRemoteAction, TVRemoteAction)] = [
-            (1, .up, .volumeUp), (2, .down, .volumeDown),
+            (1, .up, .previousApp), (2, .down, .nextApp),
             (3, .left, .previous), (4, .right, .next)
         ]
         var decoder = TVRemoteDecoder()
@@ -87,5 +87,86 @@ extension TVRemoteEventTests {
         }
         XCTAssertEqual(TVRemoteAction.next.mediaAction(navigationEnabled: false), .next)
         XCTAssertEqual(TVRemoteAction.previous.mediaAction(navigationEnabled: false), .previous)
+    }
+}
+
+extension TVRemoteEventTests {
+    func testMouseDirectionsDoNotConvertMediaKeysIntoPointerMovement() {
+        XCTAssertEqual(TVRemoteAction.left.pointerOffset?.x, -24)
+        XCTAssertEqual(TVRemoteAction.right.pointerOffset?.x, 24)
+        XCTAssertEqual(TVRemoteAction.up.pointerOffset?.y, -24)
+        XCTAssertEqual(TVRemoteAction.down.pointerOffset?.y, 24)
+        for action: TVRemoteAction in [.play, .pause, .next, .previous, .volumeUp, .mute, .togglePlayPause] {
+            XCTAssertNil(action.pointerOffset)
+        }
+        XCTAssertEqual(TVRemoteMode(rawValue: "mouse"), .mouse)
+        XCTAssertNil(TVRemoteMode(rawValue: "unknown"))
+    }
+}
+
+extension TVRemoteEventTests {
+    func testHoldAccelerationReleaseAndWatchdog() throws {
+        var motion = TVPointerMotion()
+        motion.press(.right, time: 0)
+        XCTAssertNil(motion.step(time: 0.1))
+        let slow = try XCTUnwrap(motion.step(time: 0.18))
+        var fast = slow
+        for tick in 10...70 { fast = try XCTUnwrap(motion.step(time: Double(tick) * 0.02)) }
+        XCTAssertGreaterThan(fast.distance / 0.02, slow.distance / 0.08)
+        motion.stop()
+        XCTAssertNil(motion.step(time: 1.42))
+        motion.press(.left, time: 2)
+        XCTAssertNil(motion.step(time: 2.3)) // stalled run loop: no jump
+        motion.press(.down, time: 3)
+        for tick in 1...199 { _ = motion.step(time: 3 + Double(tick) * 0.02) }
+        XCTAssertNil(motion.step(time: 7)) // lost release: bounded motion
+        XCTAssertNil(motion.step(time: 7.02))
+    }
+    func testReleaseIsObservableWithoutTreatingStaleReadsAsRepeats() {
+        var decoder = TVRemoteDecoder()
+        XCTAssertNil(decoder.consumeInput(frame: [4, 0x44, 4], localAddress: 4, time: 0))
+        XCTAssertEqual(decoder.consumeInput(frame: [4, 0x45], localAddress: 4, time: 1), .release)
+        XCTAssertEqual(decoder.consumeInput(frame: [4, 0x44, 4], localAddress: 4, time: 2), .press(.right))
+        XCTAssertNil(decoder.consumeInput(frame: [4, 0x44, 4], localAddress: 4, time: 3))
+        XCTAssertNil(decoder.consumeInput(frame: [8, 0x45], localAddress: 4, time: 3.1))
+        XCTAssertEqual(decoder.consumeInput(frame: [4, 0x45], localAddress: 4, time: 3.2), .release)
+    }
+}
+
+extension TVRemoteEventTests {
+    func testSixPointerSpeedsClampAndPreservePreviousDefault() {
+        XCTAssertEqual(TVPointerSpeed(level: 3).multiplier, 1)
+        XCTAssertEqual(TVPointerSpeed(level: 3).tapDistance, 6)
+        XCTAssertEqual(TVPointerSpeed(level: -1).level, 1)
+        XCTAssertEqual(TVPointerSpeed(level: 99).level, 6)
+        for level in 2...6 {
+            XCTAssertGreaterThan(TVPointerSpeed(level: level).multiplier, TVPointerSpeed(level: level - 1).multiplier)
+            XCTAssertGreaterThan(TVPointerSpeed(level: level).tapDistance, TVPointerSpeed(level: level - 1).tapDistance)
+        }
+    }
+}
+
+extension TVRemoteEventTests {
+    func testConfirmationOnlyClicksOnReleaseAndNeverClicksTwice() {
+        var confirm = TVPointerConfirmation()
+        XCTAssertNil(confirm.release(time: 0))
+        confirm.press(time: 1)
+        XCTAssertEqual(confirm.release(time: 1.2), .left)
+        XCTAssertNil(confirm.release(time: 1.3))
+        confirm.press(time: 2)
+        confirm.press(time: 2.5) // repeat does not restart the hold
+        XCTAssertEqual(confirm.release(time: 2.8), .right)
+        XCTAssertNil(confirm.release(time: 2.9))
+        confirm.press(time: 3)
+        confirm.cancel()
+        XCTAssertNil(confirm.release(time: 3.1))
+        confirm.press(time: 4)
+        XCTAssertNil(confirm.release(time: 8)) // stale release must not click
+    }
+    func testBackDecodeOnlyFromTVToThisMac() {
+        var decoder = TVRemoteDecoder()
+        _ = decoder.consumeInput(frame: [4], localAddress: 4, time: 0)
+        XCTAssertNil(decoder.consumeInput(frame: [8, 0x44, 0x0d], localAddress: 4, time: 1))
+        XCTAssertEqual(decoder.consumeInput(frame: [4, 0x44, 0x0d], localAddress: 4, time: 2), .press(.back))
     }
 }

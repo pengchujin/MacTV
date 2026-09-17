@@ -269,3 +269,49 @@
 "方向键控制切歌和音量" = "Use arrow keys for tracks and volume";
 
 "左：上一首；右：下一首；上/下：Mac 输出音量。HDMI 输出通常不支持软件音量，请用电视音量键。" = "Left: previous track. Right: next track. Up/down: Mac output volume. HDMI output usually does not support software volume; use the TV volume keys.";
+
+"控制模式" = "Control Mode";
+
+"媒体控制" = "Media Controls";
+
+"鼠标控制" = "Mouse Controls";
+
+"鼠标控制需要辅助功能权限，请在设置的键盘部分允许辅助功能" = "Mouse control requires Accessibility permission. Allow it in the Keyboard section of settings.";
+
+"已请求移动鼠标" = "Mouse movement requested";
+
+"已请求鼠标单击" = "Mouse click requested";
+
+"方向键逐步移动鼠标，确认键单击。需要辅助功能权限。部分 Mac 仍会同时响应方向键和 Return，请先在空白区域试用。" = "Arrow keys move the pointer in steps; OK clicks. Requires Accessibility permission. Some Macs also respond to arrow keys and Return; try on an empty area first.";
+
+"左右切歌，上下调节 Mac 音量，确认键播放或暂停。" = "Left/right: change tracks. Up/down: Mac volume. OK: play or pause.";
+
+"需要电视转发 CEC 按键。HDMI 音量可能无法调节，确认键可能同时触发 Return。" = "Requires TV CEC key forwarding. HDMI volume may be unavailable; OK may also trigger Return.";
+
+"声音通过 HDMI 播放时生效。" = "Applies when audio plays through HDMI.";
+
+"电视遥控器" = "TV Remote";
+
+"方向键移动鼠标，确认键单击。" = "Arrow keys move the pointer. OK clicks.";
+
+"连接帮助" = "Connection Help";
+
+"请在电视设置中开启 HDMI-CEC。可用的遥控按键因电视而异。" = "Enable HDMI-CEC in your TV settings. Available remote buttons vary by TV.";
+
+"HDMI 音量无法调节时，请使用电视音量键。部分 Mac 会同时响应遥控器的确认键和 Return。" = "If HDMI volume cannot be adjusted, use the TV volume buttons. Some Macs also interpret the remote’s OK button as Return.";
+
+"轻按微调，长按加速移动，确认键单击。" = "Tap to fine-tune. Hold to move faster. OK clicks.";
+
+"鼠标速度" = "Pointer Speed";
+
+"第 %@ 档" = "Level %@";
+
+"方向键移动；确认键轻按单击，长按后松开右击；返回键取消。" = "Arrows move. Tap OK to click; hold and release to right-click. Back cancels.";
+
+"已请求右键菜单" = "Context menu requested";
+
+"请允许辅助功能以使用遥控按键" = "Allow Accessibility to use remote keyboard controls.";
+
+"已发送快捷键" = "Keyboard shortcut sent";
+
+"左右切歌，上下切换应用，确认键播放或暂停，返回键取消。" = "Left/right change tracks. Up/down switch apps. OK plays or pauses. Back cancels.";

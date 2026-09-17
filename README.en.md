@@ -10,18 +10,19 @@
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.1/MacTV-v0.1.1-macOS-arm64.zip"><img src="docs/images/download-en.svg" width="196" height="44" alt="Download MacTV"></a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.zip"><img src="docs/images/download-en.svg" width="196" height="44" alt="Download MacTV"></a></p>
   <p><a href="docs/COMPATIBILITY.md">Compatibility (Chinese)</a> · <a href="https://github.com/pengchujin/MacTV/issues">Report an issue</a></p>
   <br>
   <img src="docs/images/mactv-live.png" width="640" alt="MacTV connected to a REDMI display with the input selection menu open">
   <p><sub>MacTV running with a MiTV-MFFU1 display. Screenshots show the Chinese interface; English is also supported.</sub></p>
 </div>
 
-> **v0.1.1** is Developer ID signed and notarized by Apple. Available for Apple Silicon only.
+> **v0.1.2** is Developer ID signed and notarized by Apple. Available for Apple Silicon only.
 
 ## Your familiar volume keys, now for your TV
 
 - **Keyboard volume keys** — Use your Mac’s volume and mute keys when audio is routed through HDMI.
+- **Control your Mac with a TV remote** — Switch tracks and apps or play/pause in media mode. Mouse mode adds accelerated movement, six speed levels, and hold-and-release OK to right-click. Back maps to Esc. Enable it in Settings; available keys depend on your TV.
 - **Menu bar remote** — Navigate, confirm, and go back, with wake, standby, and menu commands where supported by your TV.
 - **Input selection** — Request a switch back to this Mac or to another HDMI input. Results depend on the TV.
 - **Native experience** — Light and dark appearance, larger text, VoiceOver, and Simplified Chinese, Traditional Chinese, and English support.

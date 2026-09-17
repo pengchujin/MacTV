@@ -101,7 +101,7 @@ import SwiftUI
             let window = NSWindow(contentViewController: controller)
             window.title = L("MacTV 设置")
             window.styleMask = [.titled, .closable, .miniaturizable, .resizable]
-            window.setContentSize(NSSize(width: 500, height: 650))
+            window.setContentSize(NSSize(width: 500, height: 520))
             window.center(); window.isReleasedWhenClosed = false
             settingsWindow = window
         }
