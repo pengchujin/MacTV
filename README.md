@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.zip"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.dmg"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
   <p><a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
   <br>
   <img src="docs/images/mactv-live.png" width="640" alt="MacTV 连接 REDMI 显示器，展开输入源菜单">
@@ -24,6 +24,8 @@
 - **菜单栏遥控器** — 方向、确认、返回，以及电视支持的唤醒、待机和菜单操作。
 - **输入源** — 请求切回这台 Mac，或切换 HDMI 输入；实际效果取决于电视。
 - **原生体验** — 浅色与深色外观、大字号、VoiceOver，支持简体中文、繁体中文和英文。
+
+打开下载的 DMG，将 MacTV 拖入「应用程序」即可安装。
 
 ## Homebrew 安装
 

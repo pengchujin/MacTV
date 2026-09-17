@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.zip"><img src="docs/images/download-en.svg" width="196" height="44" alt="Download MacTV"></a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.dmg"><img src="docs/images/download-en.svg" width="196" height="44" alt="Download MacTV"></a></p>
   <p><a href="docs/COMPATIBILITY.md">Compatibility (Chinese)</a> · <a href="https://github.com/pengchujin/MacTV/issues">Report an issue</a></p>
   <br>
   <img src="docs/images/mactv-live.png" width="640" alt="MacTV connected to a REDMI display with the input selection menu open">
@@ -24,6 +24,8 @@
 - **Menu bar remote** — Navigate, confirm, and go back, with wake, standby, and menu commands where supported by your TV.
 - **Input selection** — Request a switch back to this Mac or to another HDMI input. Results depend on the TV.
 - **Native experience** — Light and dark appearance, larger text, VoiceOver, and Simplified Chinese, Traditional Chinese, and English support.
+
+Open the downloaded DMG and drag MacTV into Applications to install.
 
 ## Install with Homebrew
 
