@@ -11,6 +11,9 @@ import CoreAudio
     @Published var mapSelect = UserDefaults.standard.bool(forKey: "tvRemoteSelectTogglesPlayback") {
         didSet { UserDefaults.standard.set(mapSelect, forKey: "tvRemoteSelectTogglesPlayback") }
     }
+    @Published var mapNavigation = UserDefaults.standard.bool(forKey: "tvRemoteNavigationControlsMedia") {
+        didSet { UserDefaults.standard.set(mapNavigation, forKey: "tvRemoteNavigationControlsMedia") }
+    }
     @Published var status = L("电视遥控器控制已关闭")
     @Published var lastReceived = ""
     private var task: Task<Void, Never>?
@@ -56,12 +59,16 @@ import CoreAudio
         guard token == generation else { return }
         status = message; task = nil
     }
-    private func receive(_ action: TVRemoteAction, token: UUID) {
+    private func receive(_ received: TVRemoteAction, token: UUID) {
         guard enabled, token == generation else { return }
         let titles: [TVRemoteAction: String] = [.play: L("播放"), .pause: L("暂停"), .stop: L("停止"),
             .togglePlayPause: L("确认"), .next: L("下一首"), .previous: L("上一首"),
-            .volumeUp: L("音量加"), .volumeDown: L("音量减"), .mute: L("静音")]
-        lastReceived = L("收到电视按键：%@", titles[action] ?? action.rawValue)
+            .volumeUp: L("音量加"), .volumeDown: L("音量减"), .mute: L("静音"),
+            .up: L("向上"), .down: L("向下"), .left: L("向左"), .right: L("向右")]
+        lastReceived = L("收到电视按键：%@", titles[received] ?? received.rawValue)
+        guard let action = received.mediaAction(navigationEnabled: mapNavigation) else {
+            status = L("方向键保留原有操作"); return
+        }
         if action == .togglePlayPause && !mapSelect {
             status = L("确认键保留原有操作"); return
         }

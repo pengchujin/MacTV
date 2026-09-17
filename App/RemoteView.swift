@@ -203,6 +203,9 @@ struct SettingsView: View {
                 Toggle(L("用电视遥控器控制 Mac"), isOn: $tvRemote.enabled)
                 if tvRemote.enabled {
                     Toggle(L("确认键切换播放/暂停"), isOn: $tvRemote.mapSelect)
+                    Toggle(L("方向键控制切歌和音量"), isOn: $tvRemote.mapNavigation)
+                    Text(L("左：上一首；右：下一首；上/下：Mac 输出音量。HDMI 输出通常不支持软件音量，请用电视音量键。"))
+                        .font(.callout).foregroundStyle(.secondary)
                 }
                 Text(tvRemote.status).foregroundStyle(.secondary)
                 if !tvRemote.lastReceived.isEmpty { Text(tvRemote.lastReceived).font(.caption).foregroundStyle(.secondary) }

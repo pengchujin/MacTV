@@ -263,3 +263,9 @@
 "确认键切换播放/暂停" = "Use OK to toggle play/pause";
 
 "电视必须转发 CEC 按键。确认键映射默认关闭，因为部分 Mac 还会将它作为 Return 发送给当前 App。音量键通常由电视自身处理，HDMI 输出可能不支持 Mac 软件音量。" = "The TV must forward CEC buttons. OK mapping is off by default: some Macs also forward it as Return to the focused app. Volume keys usually control the TV directly; HDMI output may not support Mac software volume.";
+
+"方向键保留原有操作" = "Arrow keys keep their original behavior";
+
+"方向键控制切歌和音量" = "Use arrow keys for tracks and volume";
+
+"左：上一首；右：下一首；上/下：Mac 输出音量。HDMI 输出通常不支持软件音量，请用电视音量键。" = "Left: previous track. Right: next track. Up/down: Mac output volume. HDMI output usually does not support software volume; use the TV volume keys.";

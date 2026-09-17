@@ -2,6 +2,17 @@ import Foundation
 
 public enum TVRemoteAction: String, Sendable {
     case play, pause, stop, togglePlayPause, next, previous, volumeUp, volumeDown, mute
+    case up, down, left, right
+
+    public func mediaAction(navigationEnabled: Bool) -> TVRemoteAction? {
+        switch self {
+        case .up: return navigationEnabled ? .volumeUp : nil
+        case .down: return navigationEnabled ? .volumeDown : nil
+        case .left: return navigationEnabled ? .previous : nil
+        case .right: return navigationEnabled ? .next : nil
+        default: return self
+        }
+    }
 }
 
 /// Passive observer: never clears macOS-owned IRQs or changes logical addresses.
@@ -25,6 +36,10 @@ public struct TVRemoteDecoder {
         guard !repeatPress else { return nil }
         switch key {
         case 0x00: return .togglePlayPause
+        case 0x01: return .up
+        case 0x02: return .down
+        case 0x03: return .left
+        case 0x04: return .right
         case 0x41: return .volumeUp
         case 0x42: return .volumeDown
         case 0x43: return .mute

@@ -68,3 +68,24 @@ extension TVRemoteEventTests {
         XCTAssertEqual(io.writes, 0)
     }
 }
+
+extension TVRemoteEventTests {
+    func testNavigationMappingIsOptInAndPreservesDedicatedMediaKeys() {
+        let keys: [(UInt8, TVRemoteAction, TVRemoteAction)] = [
+            (1, .up, .volumeUp), (2, .down, .volumeDown),
+            (3, .left, .previous), (4, .right, .next)
+        ]
+        var decoder = TVRemoteDecoder()
+        _ = decoder.consume(frame: [4], localAddress: 4, time: 0)
+        for (key, direction, mapped) in keys {
+            _ = decoder.consume(frame: [4, 0x45], localAddress: 4, time: 1)
+            let result = decoder.consume(frame: [4, 0x44, key], localAddress: 4, time: 2)
+            XCTAssertEqual(result, direction)
+            XCTAssertNil(result?.mediaAction(navigationEnabled: false))
+            XCTAssertEqual(result?.mediaAction(navigationEnabled: true), mapped)
+            XCTAssertNil(decoder.consume(frame: [4, 0x44, key], localAddress: 4, time: 3))
+        }
+        XCTAssertEqual(TVRemoteAction.next.mediaAction(navigationEnabled: false), .next)
+        XCTAssertEqual(TVRemoteAction.previous.mediaAction(navigationEnabled: false), .previous)
+    }
+}
