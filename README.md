@@ -10,8 +10,8 @@
   </p>
   <p><a href="https://github.com/pengchujin/MacTV/releases">下载版本</a> · <a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
   <br>
-  <img src="docs/images/remote.png" width="320" alt="MacTV：方向键、菜单、输入源和音量控制">
-  <p><sub>实际界面的离线示例，设备名称为演示数据。</sub></p>
+  <img src="docs/images/mactv-live.png" width="640" alt="MacTV 连接 REDMI 显示器，展开输入源菜单">
+  <p><sub>MacTV 实机界面 · MiTV-MFFU1</sub></p>
 </div>
 
 > **v0.1.1** 已使用 Developer ID 签名并通过 Apple 公证。仅提供 Apple Silicon 版本。
