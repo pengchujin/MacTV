@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/Apple_Silicon-arm64-111111?style=flat-square" alt="Apple Silicon">
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-111111?style=flat-square" alt="MIT License"></a>
   </p>
-  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.2/MacTV-v0.1.2-macOS-arm64.dmg"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
+  <p><a href="https://github.com/pengchujin/MacTV/releases/download/v0.1.3/MacTV-v0.1.3-macOS-arm64.dmg"><img src="docs/images/download.svg" width="160" height="44" alt="下载 MacTV"></a></p>
   <p><a href="docs/COMPATIBILITY.md">设备兼容性</a> · <a href="https://github.com/pengchujin/MacTV/issues">反馈问题</a></p>
   <br>
   <img src="docs/images/mactv-live.png" width="640" alt="MacTV 连接 REDMI 显示器，展开输入源菜单">
