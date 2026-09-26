@@ -113,6 +113,8 @@ import CoreAudio
         pointerMotion.stop()
         guard let action = received.mediaAction(navigationEnabled: true) else { return }
         switch action {
+        case .left: postKeyboard(key: 123)
+        case .right: postKeyboard(key: 124)
         case .previousApp: postKeyboard(key: 48, flags: [.maskCommand, .maskShift])
         case .nextApp: postKeyboard(key: 48, flags: .maskCommand)
         case .volumeUp, .volumeDown, .mute:

@@ -22,7 +22,7 @@
 MacTV is a Mac menu bar app that lets you adjust TV volume with your familiar keyboard controls and access TV power, menus, and inputs from the menu bar. Your TV remote can also control playback, switch tracks and apps, and move and click the mouse on your Mac. Available features depend on your TV and Mac.
 
 - **Keyboard volume keys** — Use your Mac’s volume and mute keys when audio is routed through HDMI.
-- **Control your Mac with a TV remote** — Switch tracks and apps or play/pause in media mode. Mouse mode adds accelerated movement, six speed levels, and hold-and-release OK to right-click. Back maps to Esc. Enable it in Settings; available keys depend on your TV.
+- **Control your Mac with a TV remote** — In media mode, left/right send arrow keys to the foreground player to change tracks or seek; app switching and play/pause are also supported. Mouse mode adds accelerated movement, six speed levels, and hold-and-release OK to right-click. Back maps to Esc. Enable it in Settings; available keys depend on your TV.
 - **Menu bar remote** — Navigate, confirm, and go back, with wake, standby, and menu commands where supported by your TV.
 - **Input selection** — Request a switch back to this Mac or to another HDMI input. Results depend on the TV.
 - **Native experience** — Light and dark appearance, VoiceOver, and Simplified Chinese, Traditional Chinese, and English support.

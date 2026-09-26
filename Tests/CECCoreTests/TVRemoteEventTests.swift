@@ -73,7 +73,7 @@ extension TVRemoteEventTests {
     func testNavigationMappingIsOptInAndPreservesDedicatedMediaKeys() {
         let keys: [(UInt8, TVRemoteAction, TVRemoteAction)] = [
             (1, .up, .previousApp), (2, .down, .nextApp),
-            (3, .left, .previous), (4, .right, .next)
+            (3, .left, .left), (4, .right, .right)
         ]
         var decoder = TVRemoteDecoder()
         _ = decoder.consume(frame: [4], localAddress: 4, time: 0)

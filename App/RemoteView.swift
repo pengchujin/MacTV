@@ -205,7 +205,7 @@ struct SettingsView: View {
                         Text(L("鼠标控制")).tag(TVRemoteMode.mouse)
                     }.pickerStyle(.segmented)
                     Text(tvRemote.mode == .media
-                         ? L("左右切歌，上下切换应用，确认键播放或暂停，返回键取消。")
+                         ? L("左右发送方向键，由前台播放器切歌或调整进度；上下切换应用，确认键播放或暂停，返回键取消。")
                          : L("方向键移动；确认键轻按单击，长按后松开右击；返回键取消。"))
                         .font(.callout).foregroundStyle(.secondary)
                     if tvRemote.mode == .mouse {

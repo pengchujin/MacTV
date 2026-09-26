@@ -1,17 +1,41 @@
 import AppKit
-let output = CommandLine.arguments[1]
-let icon = NSImage(size: NSSize(width: 1024, height: 1024))
-icon.lockFocus()
-let background = NSBezierPath(roundedRect: NSRect(x: 60, y: 60, width: 904, height: 904), xRadius: 202, yRadius: 202)
-NSGradient(starting: NSColor(white: 0.97, alpha: 1), ending: NSColor(white: 0.84, alpha: 1))!.draw(in: background, angle: -90)
-let body = NSBezierPath(roundedRect: NSRect(x: 345, y: 188, width: 334, height: 648), xRadius: 145, yRadius: 145)
-NSColor(srgbRed: 0.15, green: 0.17, blue: 0.20, alpha: 1).setFill(); body.fill()
-let ring = NSBezierPath(ovalIn: NSRect(x: 387, y: 548, width: 250, height: 250))
-NSColor(white: 0.82, alpha: 1).setFill(); ring.fill()
-let center = NSBezierPath(ovalIn: NSRect(x: 455, y: 616, width: 114, height: 114))
-NSColor(srgbRed: 0.18, green: 0.38, blue: 0.65, alpha: 1).setFill(); center.fill()
-NSColor(white: 0.90, alpha: 1).setFill()
-NSBezierPath(roundedRect: NSRect(x: 469, y: 291, width: 86, height: 174), xRadius: 43, yRadius: 43).fill()
-icon.unlockFocus()
-let bitmap = NSBitmapImageRep(data: icon.tiffRepresentation!)!
-try bitmap.representation(using: .png, properties: [:])!.write(to: URL(fileURLWithPath: output))
+
+// Compile the original, opaque artwork into a legacy macOS icon. Older systems
+// render ICNS pixels directly, so the rounded silhouette must be in the asset.
+// Usage: swift App/MakeIcon.swift App/Resources/AppIcon.png output.iconset
+guard CommandLine.arguments.count == 3,
+       let artwork = NSImage(contentsOfFile: CommandLine.arguments[1]) else {
+    fatalError("Usage: MakeIcon.swift artwork.png output.iconset")
+}
+let directory = URL(fileURLWithPath: CommandLine.arguments[2], isDirectory: true)
+try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+let sizes = [(16, 1), (16, 2), (32, 1), (32, 2), (128, 1), (128, 2),
+             (256, 1), (256, 2), (512, 1), (512, 2)]
+for (points, scale) in sizes {
+    let pixels = points * scale
+    let bitmap = NSBitmapImageRep(bitmapDataPlanes: nil, pixelsWide: pixels,
+        pixelsHigh: pixels, bitsPerSample: 8, samplesPerPixel: 4,
+        hasAlpha: true, isPlanar: false, colorSpaceName: .deviceRGB,
+        bytesPerRow: pixels * 4, bitsPerPixel: 32)!
+    bitmap.size = NSSize(width: pixels, height: pixels)
+    NSGraphicsContext.saveGraphicsState()
+    NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmap)
+    NSGraphicsContext.current?.imageInterpolation = .high
+    let canvas = NSRect(x: 0, y: 0, width: pixels, height: pixels)
+    NSColor.clear.setFill()
+    canvas.fill(using: .copy)
+    // A 1024px legacy canvas has a centered 824px body and transparent margins.
+    let inset = CGFloat(pixels) * 100 / 1024
+    let body = canvas.insetBy(dx: inset, dy: inset)
+    let radius = body.width * 0.225
+    NSBezierPath(roundedRect: body, xRadius: radius, yRadius: radius).addClip()
+    artwork.draw(in: body, from: .zero, operation: .sourceOver, fraction: 1)
+    NSGraphicsContext.restoreGraphicsState()
+    // Validate the actual exported pixels, not just the presence of an alpha flag.
+    precondition(bitmap.colorAt(x: 0, y: 0)!.alphaComponent == 0)
+    precondition(bitmap.colorAt(x: pixels / 2, y: pixels / 2)!.alphaComponent > 0.99)
+    let suffix = scale == 2 ? "@2x" : ""
+    let name = "icon_\(points)x\(points)\(suffix).png"
+    try bitmap.representation(using: .png, properties: [:])!
+        .write(to: directory.appendingPathComponent(name))
+}

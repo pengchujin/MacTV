@@ -315,3 +315,5 @@
 "已发送快捷键" = "Keyboard shortcut sent";
 
 "左右切歌，上下切换应用，确认键播放或暂停，返回键取消。" = "Left/right change tracks. Up/down switch apps. OK plays or pauses. Back cancels.";
+
+"左右发送方向键，由前台播放器切歌或调整进度；上下切换应用，确认键播放或暂停，返回键取消。" = "Left/right send arrow keys to the foreground player to change tracks or seek. Up/down switch apps. OK plays or pauses. Back cancels.";

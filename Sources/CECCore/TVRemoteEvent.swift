@@ -22,8 +22,8 @@ public enum TVRemoteAction: String, Sendable {
         switch self {
         case .up: return navigationEnabled ? .previousApp : nil
         case .down: return navigationEnabled ? .nextApp : nil
-        case .left: return navigationEnabled ? .previous : nil
-        case .right: return navigationEnabled ? .next : nil
+        case .left: return navigationEnabled ? .left : nil
+        case .right: return navigationEnabled ? .right : nil
         default: return self
         }
     }
