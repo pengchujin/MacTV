@@ -36,12 +36,17 @@ import SwiftUI
     }
     func update() {
         hdmiOutput=isHDMIOutput()
-        needsPermission=enabled && !AXIsProcessTrusted()
-        if !enabled { stop();status=L("音量键接管已关闭");return }
-        if needsPermission { stop();status=L("需要允许“MacTV”使用辅助功能");return }
+        let permissionRequired = enabled && !AXIsProcessTrusted()
+        if needsPermission != permissionRequired { needsPermission = permissionRequired }
+        if !enabled { stop();setStatus(L("音量键接管已关闭"));return }
+        if needsPermission { stop();setStatus(L("需要允许“MacTV”使用辅助功能"));return }
         if tap == nil { start() }
-        guard tap != nil else { status=L("音量键监听未启动，请重新打开 App");return }
-        status = !hdmiOutput ? L("当前不是 HDMI 输出，音量键交给 macOS") : !ready() ? L("等待可用的 HDMI 显示器") : L("已接管 HDMI 输出的音量键和静音键")
+        guard tap != nil else { setStatus(L("音量键监听未启动，请重新打开 App"));return }
+        setStatus(!hdmiOutput ? L("当前不是 HDMI 输出，音量键交给 macOS") : !ready() ? L("等待可用的 HDMI 显示器") : L("已接管 HDMI 输出的音量键和静音键"))
+    }
+    // Unchanged @Published assignments still invalidate hidden SwiftUI views.
+    private func setStatus(_ value: String) {
+        if status != value { status = value }
     }
     func requestPermission() {
         _=AXIsProcessTrustedWithOptions([kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String:true] as CFDictionary)

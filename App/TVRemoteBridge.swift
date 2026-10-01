@@ -32,7 +32,10 @@ import CoreAudio
         self.connection = connection; self.paused = paused
         let desired = enabled && !paused ? connection : 0
         guard desired != activeConnection || (desired != 0 && task == nil) else {
-            if desired == 0 { status = enabled ? L("等待 HDMI 连接空闲") : L("电视遥控器控制已关闭") }
+            if desired == 0 {
+                let value = enabled ? L("等待 HDMI 连接空闲") : L("电视遥控器控制已关闭")
+                if status != value { status = value }
+            }
             return
         }
         pointerMotion.stop(); confirmation.cancel()
